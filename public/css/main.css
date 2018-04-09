@@ -1,0 +1,21 @@
+.container {
+  max-width: 980px;
+  margin: auto;
+}
+.wish {
+  width: 100%;
+  display: grid;
+  grid-template-areas: 'image title title';
+}
+.wish .image {
+   grid-area: image;
+}
+.wish .title {
+   grid-area: title;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+.wish .image img {
+
+}
