@@ -16,7 +16,7 @@
         </div>
         <div class="title">
           <p>{{ wish.title }}</p>
-          <button v-on:click="deleteWish(wish)">
+          <button class="delete" v-on:click="deleteWish(wish)">
             <i class="fa fa-times" aria-hidden="true"></i>
           </button>
         </div>
