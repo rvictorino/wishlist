@@ -9,17 +9,11 @@
   </head>
   <body>
     <div id="app" class="container">
-
-      <div v-for="wish in wishes" class="wish">
-        <div class="image">
-          <img v-bind:src="wish.url" v-bind:alt="wish.title">
-        </div>
-        <div class="title">
-          <p>{{ wish.title }}</p>
-          <button class="delete" v-on:click="deleteWish(wish)">
-            <i class="fa fa-times" aria-hidden="true"></i>
-          </button>
-        </div>
+      
+      <div class="wishlist">
+        <card v-for="wish in wishes"
+          v-bind:wish="wish"
+          v-on:delete="deleteWish(wish)"/></card>
       </div>
 
       <form v-on:submit="createWish" action="/api/wishes" method="post">
@@ -33,6 +27,23 @@
     </div>
     <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
     <script type="text/javascript">
+
+      Vue.component('card', {
+        props: ['wish'],
+        template: `
+          <div class="wish">
+            <div class="image">
+              <img v-bind:src="wish.url" v-bind:alt="wish.title">
+            </div>
+            <div class="title">
+              <p>{{ wish.title }}</p>
+              <button class="delete" v-on:click="$emit('delete')">
+                <i class="fa fa-times" aria-hidden="true"></i>
+              </button>
+            </div>
+          </div>`
+      })
+
       var app = new Vue({
         el: "#app",
         data: {

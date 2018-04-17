@@ -1,54 +1,41 @@
-.container {
-  max-width: 980px;
-  margin: auto;
-}
-.wish {
-  width: 100%;
-  display: grid;
-  grid-template-areas: 'image title title';
-  margin: 20px 0;
-  border-radius: 10px;
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+  .container {
+    max-width: 1280px;
+    margin: auto;
+  }
+  .wishlist {
+    /* common properties */
+    display: grid;
 
-  /* card shadow */
-  -webkit-box-shadow: 0px 0px 5px 0px rgba(108,122,137,0.25);
-  -moz-box-shadow: 0px 0px 5px 0px rgba(108,122,137,0.25);
-  box-shadow: 0px 0px 5px 0px rgba(108,122,137,0.25);
+    /* this will change on breakpoints */
+    grid-template-areas: 'card';
+  }
+  .wish {
+    grid-area: card;
+  }
 }
-.wish .image {
-  grid-area: image;
-  /* img aspect ratio hack */
-  padding-top: 75%;
-  position: relative;
-}
-.wish .image img {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 10px 0 0 10px;
 
-  /* fallback if img does not load */
-  background-color: #BDC3C7;
-  color: #FFFFFF;
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .wishlist {
+    /* this will change on breakpoints */
+    grid-template-areas: 'card card card card';
+  }
 }
-.wish .title {
-  grid-area: title;
-  position: relative;
-}
-.wish .title .delete {
-  position: absolute;
-  top: 0;
-  right: 0;
-  padding: 20px;
-  cursor: pointer;
-  text-align: center;
 
-  background-color: transparent;
-  border: none;
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .wishlist {
+    /* this will change on breakpoints */
+    grid-template-areas: 'card card card card card card';
+  }
 }
-.wish .title .delete:hover {
-  background-color: #BDC3C7;
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  .wishlist {
+    /* this will change on breakpoints */
+    grid-template-areas: 'card card card card card card card card';
+  }
 }
