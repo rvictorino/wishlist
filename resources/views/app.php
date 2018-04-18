@@ -9,7 +9,7 @@
   </head>
   <body>
     <div id="app" class="container">
-      
+
       <div class="wishlist">
         <card v-for="wish in wishes"
           v-bind:wish="wish"
@@ -35,7 +35,7 @@
             <div class="image">
               <img v-bind:src="wish.url" v-bind:alt="wish.title">
             </div>
-            <div class="title">
+            <div class="content">
               <p>{{ wish.title }}</p>
               <button class="delete" v-on:click="$emit('delete')">
                 <i class="fa fa-times" aria-hidden="true"></i>

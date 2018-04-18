@@ -12,7 +12,19 @@
     grid-template-areas: 'card';
   }
   .wish {
-    grid-area: card;
+    /* common properties */
+    display: grid;
+
+    /* this will change on breakpoints */
+    grid-template-areas:
+      "image"
+      "content";
+  }
+  .wish .image {
+    grid-area: image;
+  }
+  .wish .content {
+    grid-area: content;
   }
 }
 
@@ -22,13 +34,23 @@
     /* this will change on breakpoints */
     grid-template-areas: 'card card card card';
   }
+  .wish {
+    /* this will change on breakpoints */
+    grid-template-areas:
+      "image"
+      "content";
+  }
 }
 
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
   .wishlist {
     /* this will change on breakpoints */
-    grid-template-areas: 'card card card card card card';
+    grid-template-areas: 'card card card card';
+  }
+  .wish {
+    /* this will change on breakpoints */
+    grid-template-areas: "image content";
   }
 }
 
@@ -36,6 +58,10 @@
 @media (min-width: 1200px) {
   .wishlist {
     /* this will change on breakpoints */
-    grid-template-areas: 'card card card card card card card card';
+    grid-template-areas: 'card card card card card card';
+  }
+  .wish {
+    /* this will change on breakpoints */
+    grid-template-areas: "image content";
   }
 }
