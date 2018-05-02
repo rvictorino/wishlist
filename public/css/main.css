@@ -1,30 +1,64 @@
+body {
+  background-color: rgb(236,236,236);
+  color: rgb(108, 122, 137);
+}
+.container {
+  max-width: 1280px;
+  margin: auto;
+}
+.wishlist {
+  /* common properties */
+  display: grid;
+  grid-row-gap: 1rem;
+  grid-column-gap: 1rem;
+
+  /* this will change on breakpoints */
+  grid-template-areas: 'card';
+}
+.wish {
+  /* common properties */
+  display: grid;
+  background-color: rgb(255, 255, 255);
+
+
+  /* this will change on breakpoints */
+  grid-template-areas:
+    "image"
+    "content";
+}
+.wish .image {
+  grid-area: image;
+  background-color: rgb(191, 191, 191);
+}
+.wish .image picture {
+  position: relative;
+  height: 0;
+  width: 100%;
+  /* 4:3 */
+  padding-top: 75%;
+}
+.wish .image picture img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.wish .content {
+  grid-area: content;
+}
+
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {
-  .container {
-    max-width: 1280px;
-    margin: auto;
-  }
   .wishlist {
-    /* common properties */
-    display: grid;
-
     /* this will change on breakpoints */
     grid-template-areas: 'card';
   }
   .wish {
-    /* common properties */
-    display: grid;
-
     /* this will change on breakpoints */
     grid-template-areas:
       "image"
       "content";
-  }
-  .wish .image {
-    grid-area: image;
-  }
-  .wish .content {
-    grid-area: content;
   }
 }
 
@@ -46,11 +80,11 @@
 @media (min-width: 992px) {
   .wishlist {
     /* this will change on breakpoints */
-    grid-template-areas: 'card card card card';
+    grid-template-areas: 'card card card';
   }
   .wish {
     /* this will change on breakpoints */
-    grid-template-areas: "image content";
+    grid-template-areas: "image content content";
   }
 }
 
@@ -58,10 +92,10 @@
 @media (min-width: 1200px) {
   .wishlist {
     /* this will change on breakpoints */
-    grid-template-areas: 'card card card card card card';
+    grid-template-areas: 'card card card';
   }
   .wish {
     /* this will change on breakpoints */
-    grid-template-areas: "image content";
+    grid-template-areas: "image content content";
   }
 }

@@ -6,6 +6,18 @@
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="/css/main.css">
+    <style>
+      /*debug*/
+      /*.content {
+        border: 1px solid blue;
+      }
+      .image {
+        border: 1px solid green;
+      }
+      .wish {
+        border: 1px solid red;
+      }*/
+    </style>
   </head>
   <body>
     <div id="app" class="container">
@@ -33,7 +45,10 @@
         template: `
           <div class="wish">
             <div class="image">
-              <img v-bind:src="wish.url" v-bind:alt="wish.title">
+              <picture>
+                <img v-bind:src="wish.url" v-bind:alt="wish.title">
+                <source media="(min-width: 100px)" srcset="wish.url">
+              </picture>
             </div>
             <div class="content">
               <p>{{ wish.title }}</p>
