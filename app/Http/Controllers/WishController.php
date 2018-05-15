@@ -14,15 +14,27 @@ class WishController extends Controller {
 
 
   public function get($id) {
-    return response()->json(Wish::all());
+    $wish = Wish::where('id', $id)->first();
+    if (!$wish) {
+      return response()->json(['success' => false], 400);
+    }
+    return response()->json($wish);
   }
 
   public function create(Request $request) {
+    $this->validate($request, [
+      'title' => 'required|unique:wishes',
+      'url' => 'nullable|url'
+    ]);
     $wish = Wish::create($request->all());
     return response()->json($wish, 201);
   }
 
   public function update($id, Request $request) {
+    $this->validate($request, [
+      'title' => 'sometimes|required|unique:wishes',
+      'url' => 'nullable|url'
+    ]);
     $wish = Wish::findOrFail($id);
     $wish->update($request->all());
     return response()->json($wish, 200);
@@ -30,7 +42,7 @@ class WishController extends Controller {
 
   public function delete($id) {
     Wish::findOrFail($id)->delete();
-    return response('Deleted Successfully', 200);
+    return response()->json(['success' => true], 200);
   }
 
 }
