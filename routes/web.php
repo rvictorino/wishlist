@@ -15,9 +15,6 @@
 $router->get('/', function () {
     return view('app');
 });
-$router->get('/login', function () {
-    return view('login');
-});
 
 
 // API endpoint

@@ -38,10 +38,11 @@ class AuthController extends BaseController
             return response()->json(['success' => false], 400);
         }
         // Verify the password and generate the token
-        if (Hash::check($request->input('password'), $user->password)) {
-            return response()->json(['token' => $this->jwt($user)], 200);
+        if (!Hash::check($request->input('password'), $user->password)) {
+            // Bad Request response
+            return response()->json(['success' => false], 400);
         }
-        // Bad Request response
-        return response()->json(['success' => false], 400);
+        // generate token and return it
+        return response()->json(['token' => $this->jwt($user)], 200);
     }
 }
