@@ -153,12 +153,12 @@
             }).then( () => this.listWishes());
           }
         },
-        created() { console.log(this.isLoggedIn);this.listWishes() }
+        created() { this.listWishes() }
       });
 
-      const Main = Vue.component('main', {
-
-      }
+      // const Main = Vue.component('main', {
+      //
+      // })
 
       const router = new VueRouter({
         routes: [
